@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        confirm("Welcome to Rock, Paper, Scissors\n Do you want to proceed now?");
+        
+        function getComputerChoice() {
+            return Math.floor(Math.random() * 3) + 1;
+
+        }
+
+        function getUserChoice() {
+            return parseInt(prompt("Please enter one of these: \n1.Rock\n 2.Paper \n3.Scissors"));
+        }
+        
+        var userPoints = 0;
+        var comPoints = 0;
+
+        function getSelection(number) {
+            if (number == 1) {
+                return "Rock";
+            } 
+            else if (number == 2) {
+                return "Paper";
+            }
+            else if (number == 3) {
+                return "Scissors";
+            }
+        }
+
+        while ( userPoints <3 && comPoints <3 ) {
+            let computerChoice = getComputerChoice();
+
+            let userChoice = getUserChoice();
+
+            if (userChoice == 1 && computerChoice == 3) {
+                console.log("User Won this time! Rock beats Paper ");
+                userPoints++;
+            }
+            else if (userChoice == 2 && computerChoice ==1) {
+                console.log("User Won this time! Paper beats Rock!");
+                userPoints++;
+            }
+            else if (userChoice == 3 && computerChoice ==2) {
+                console.log("User Won this time! Scissor beats Paper!");
+                userPoints++;
+            }
+            else if (userChoice == computerChoice) {
+                console.log("It was a draw! ");
+            }
+            else {
+                console.log("User Lost!\nComputer selected:"+ getSelection(computerChoice));
+                comPoints++;
+            }
+
+        }
+
+        if (userPoints > comPoints) {
+            console.log("User got the first three points!\n" + "Computer =" + comPoints + "\n" + "User =" + userPoints);
+        } 
+        else {
+            console.log("Computer got the first three points!\n" + "Computer = " + comPoints + "\n" + "User =" + userPoints);
+        }
+
+
+
+    </script>
+</body>
+</html>
